@@ -211,8 +211,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2005009717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2005009719}
+  - component: {fileID: 2005009718}
+  - component: {fileID: 2005009720}
+  m_Layer: 0
+  m_Name: "\u8AB2\u7A0B_6_\u8FF4\u5708\u8207\u9663\u5217"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2005009718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005009717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a850eed55fc0a4ea37a675d19fccf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2005009719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005009717}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.83121276, y: -0.09542923, z: -0.018769369}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2005009720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005009717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b65f763f011ee148813f0fde19a2b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card1: "\u76AE\u5361\u4E18"
+  card2: "\u5C0F\u706B\u9F8D"
+  card3: "\u5361\u6BD4\u7378"
+  cards:
+  - "\u5999\u86D9\u7A2E\u5B50"
+  - "\u76AE\u4E18"
+  - "\u706B\u7130\u9CE5"
+  deck1:
+  - 
+  - 
+  - 
+  - 
+  - 
+  deck2:
+  - "\u6025\u51CD\u9CE5"
+  - "\u8CED\u971E"
+  - "\u5BF6\u77F3\u6D77\u661F"
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1597657135}
+  - {fileID: 2005009719}
