@@ -12,11 +12,13 @@ namespace KAI
         private void Awake()
         {
             //實例化 NPC 並儲存在npcJack變數內
-            Class_8_1_NPC npcJack = new Class_8_1_NPC();
-            Class_8_1_NPC npcKAI = new Class_8_1_NPC("KAI");
+            Class_8_1_NPC npcJack = new Class_8_1_NPC("傑克");
+            Class_8_1_NPC npcKAI = new Class_8_1_NPC("KAI","你好啊~");
 
             npcJack.LogName();
             npcKAI.LogName();
+            npcJack.Talk();
+            npcKAI.Talk();
         }
     }
 
