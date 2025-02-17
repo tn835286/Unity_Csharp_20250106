@@ -3,7 +3,7 @@
 /// <summary>
 /// 練習 : 函式
 /// </summary>
-public class practise_4_Function : MonoBehaviour 
+public class practice_4_Function : MonoBehaviour 
 {
     private void Awake()
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class practise_3_Operator : MonoBehaviour
+public class practice_3_Operator : MonoBehaviour
 {
     private void Awake()
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Practise_1_Varlable : MonoBehaviour
+public class Practice_1_Varlable : MonoBehaviour
 {
     public int price = 999;
     private float jumpHeight = 77.5f;

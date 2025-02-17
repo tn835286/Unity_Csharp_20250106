@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Practise_2_DataType : MonoBehaviour
+public class Practice_2_DataType : MonoBehaviour
 {
     public float variableFloat = 7.7f;
     public double variableDouble = 0.1235;

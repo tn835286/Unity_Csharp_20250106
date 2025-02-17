@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class practise_5_Selection : MonoBehaviour 
+public class practice_5_Selection : MonoBehaviour 
 {
     [SerializeField, Header("血量"), Range(0, 100)]
     private float hp = 100;
