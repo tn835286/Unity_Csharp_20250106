@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using KAI.Tools;
+using UnityEngine;
 
 namespace KAI
 {
@@ -11,6 +12,9 @@ namespace KAI
         {
             Class_8_2_PlayerData player1 = new Class_8_2_PlayerData(2, 30);
             Class_8_2_PlayerData player2 = new Class_8_2_PlayerData(5, 100);
+
+            // 測試輸出工具
+            LogSysytem.LogWithColor("測試輸出工具", "#6f6");
         }
     }
 }
