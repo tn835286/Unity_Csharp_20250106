@@ -24,6 +24,34 @@ namespace KAI
             //LogSysytem.LogWithColor(struct2.ToString(), "#f96");
 
         }
+
+        private void Start()
+        {
+            // var 不指定類型，可以儲存所有資料
+            var testClass = new Class_8_4_Class("我是類別");
+            var testStruct = new Class_8_4_Struct("我是結構");
+
+            var testClass2 = new Class_8_4_Class("我是類別2");
+            var testStruct2 = new Class_8_4_Struct("我是結構2");
+
+            LogSysytem.LogWithColor(testClass.name, "#79f");
+            LogSysytem.LogWithColor(testClass2.name, "#79f");
+            LogSysytem.LogWithColor(testStruct.name, "#79f");
+            LogSysytem.LogWithColor(testStruct2.name, "#79f");
+
+            testClass2 = testClass;     //傳址：這時候的 class 與 class2 指向同一個地址
+            testStruct2 = testStruct;   //傳值：這時候的 struct 與 struct2 指向同一個值
+
+            // 修改 class 或 class2 資料都會被同步
+            testClass.name = "類別";
+            LogSysytem.LogWithColor(testClass.name, "#f79");
+            LogSysytem.LogWithColor(testClass2.name, "#f79");
+
+            // 修改 struct 或 struct2 資料不會被同步
+            testStruct.name = "結構";
+            LogSysytem.LogWithColor(testStruct.name, "#f79");
+            LogSysytem.LogWithColor(testStruct2.name, "#f79");
+        }
     }
 
     //類別:
