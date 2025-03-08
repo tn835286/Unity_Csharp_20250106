@@ -1,6 +1,7 @@
 ﻿using KAI.Tools;
 using UnityEditor.Build;
 using UnityEngine;
+using System;
 
 namespace KAI
 {
@@ -52,6 +53,30 @@ namespace KAI
             LogSysytem.LogWithColor(byte4, "#f77");
 
             LogSysytem.LogWithColor("--------------", "#ff3");
+
+        }
+
+        private void Start()
+        {
+            // 將整數轉為字串
+            int count = 99;
+            var intToString = Convert.ToString(count);
+            LogSysytem.LogWithColor(intToString.GetType(), "#f96");
+            // 將布林值轉為字串
+            bool isOver = false;
+            var boolToString = Convert.ToString(isOver);
+            LogSysytem.LogWithColor(boolToString.GetType(),"#f96");
+
+            float move = 3.5f;
+            var floatToByte = Convert.ToByte(move);
+            LogSysytem.LogWithColor(floatToByte.GetType(), "#f96");
+
+            // true = 1, flase = 0
+            bool isGrounded = true;
+            var boolToByte = Convert.ToByte(isGrounded);
+            LogSysytem.LogWithColor(boolToByte, "#6f6");
+            LogSysytem.LogWithColor(boolToByte.GetType(), "#6f6");
+            
 
         }
     }
