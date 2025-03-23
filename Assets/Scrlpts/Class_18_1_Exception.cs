@@ -12,6 +12,7 @@ namespace KAI.Class_18
     {
         private void Awake()
         {
+            #region 例外處理
             LogSysytem.LogWithColor($"{Division(8, 4)}", "#f33");
             LogSysytem.LogWithColor($"{Division(3, 9)}", "#f33");
             LogSysytem.LogWithColor($"{Division(7, 0)}", "#f33");
@@ -21,8 +22,30 @@ namespace KAI.Class_18
             LogSysytem.LogWithColor($"{GetScores(9)}", "#3f3");
 
             SetEnemy();
+            #endregion
+
+            try
+            {
+                Damage(35);
+                Damage(70);
+            }
+            catch (Exception e)
+            {
+                LogSysytem.LogWithColor(e, "#fa9");
+            }
+
+            try
+            {
+                Cure(30);
+                Cure(-10);
+            }
+            catch (CureValueLowerZeroException e)
+            {
+                LogSysytem.LogWithColor(e.Message, "#7f3");
+            }
         }
 
+        #region 例外處理
         /// <summary>
         /// 除法
         /// </summary>
@@ -46,7 +69,7 @@ namespace KAI.Class_18
             finally
             {
                 LogSysytem.LogWithColor($"例外處理完畢", "#f73");
-                
+
             }
         }
 
@@ -87,5 +110,47 @@ namespace KAI.Class_18
                 LogSysytem.LogWithColor($"發生例外:{e.Message}", "#f39");
             }
         }
+        #endregion
+        private float hp = 100;
+
+        private void Damage(float damage)
+        {
+            hp -= damage;
+
+            if (hp <= 0)
+            {
+                //自訂例外
+                throw new Exception("血量小於零");
+            }
+            else
+            {
+                LogSysytem.LogWithColor($"血量:{hp}", "#93f");
+            }
+        }
+
+        private void Cure(float cure)
+        {
+            if (cure < 0)
+            {
+                //throw new Exception("治癒值低於零");
+                throw new CureValueLowerZeroException("治癒值低於零");
+            }
+            else
+            {
+                hp += cure;
+            }
+        }
     }
+
+    /// <summary>
+    /// 治癒值低於零例外
+    /// </summary>
+    public class CureValueLowerZeroException : Exception
+    {
+            /// <summary>
+            /// 建構子
+            /// </summary>
+            /// <param name="message">例外訊息</param>
+        public CureValueLowerZeroException(string message) : base(message) { }
+    }    
 }
