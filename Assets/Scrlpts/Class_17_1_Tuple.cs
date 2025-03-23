@@ -31,6 +31,12 @@ namespace KAI.Class_17
             UseCard(card1);
             UseCard(card2);
             UseCard(("暴龍", 7, 99));
+
+            var card1Update = UpdateCardCost(card1);
+            LogSysytem.LogWithColor($"{card1Update.name} | 消耗:{card1Update.cost} | 編號:{card1Update.index}", "#f49");
+
+            LogSysytem.LogWithColor($"{card1Update == card1}", "#79f");
+            LogSysytem.LogWithColor($"{card1Update != card1}", "#79f");
         }
 
         /// <summary>
@@ -40,6 +46,18 @@ namespace KAI.Class_17
         private void UseCard((string name, int cost, int index) card)
         {
             LogSysytem.LogWithColor($"消耗{card.cost} 使用卡牌:{card.name}", "#7f7");
+        }
+
+        /// <summary>
+        /// 降低卡牌消耗
+        /// </summary>
+        /// <param name="card">卡牌</param>
+        /// <returns>降低消耗的卡牌</returns>
+        private (string name, int cost, int index) UpdateCardCost((string name, int cost, int index) card)
+        {
+            card.name = card.name + "降低消耗版本";
+            card.cost -= 1;
+            return card;
         }
     }
 
