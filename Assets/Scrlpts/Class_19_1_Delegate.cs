@@ -1,4 +1,5 @@
-﻿using KAI.Tools;
+﻿using System;
+using KAI.Tools;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -85,7 +86,22 @@ namespace KAI.Class_19
         private DelegateCombine<float> delegateCombineFloat;
         private DelegateCombine<int> delegateCombineInt;
     
+        // func
+        // 可以存放有傳回並且有 0 個參數以上的方法
+        // 宣告一個委派，有一個參數 float，並且傳回值 float
+        // <參數，傳回值>
+        private Func<float, float> funcCalc;
 
+        // Action
+        // 可以存放無傳回並且有 0 個參數以上的方法
+        // 宣告一個委派，沒有參數也沒有傳回值
+        private Action actionMethod;
+        
+        // Predicate
+        // 可以存放有布林值傳回並且有 1 個參數的方法
+        // 宣告一個委派，有一個參數 float，並且傳回值有 bool
+        private Predicate<float> predicate; 
+        
         // 4. 呼叫委派
         private void Start()
         {
@@ -98,6 +114,7 @@ namespace KAI.Class_19
             delegateMethod();           // 呼叫委派 
             #endregion
 
+            #region 多播委派及泛型委派
             calculate += Add;
             calculate += Sub;
             calculate += Mul;
@@ -108,7 +125,47 @@ namespace KAI.Class_19
             delegateCombineFloat(3.5f);
             delegateCombineInt = Combine<int>;
             delegateCombineInt(999);
+            #endregion
 
+            #region 匿名方法
+            // 匿名方法
+            //delegate (參數) {陳述式}
+            DelegateMethod anonymousMethod = delegate () { };
+            Calculate anonymousCalc = delegate (float a, float b) { return a * b; };
+            // 簡寫方式
+            DelegateMethod anonymousDelegateMethod2 = () => { };
+            Calculate anonymousCalc2 = (a, b) => { return a * b; };
+
+
+            CalcuteNumber(Add, 3, 7);
+            CalcuteNumber(anonymousCalc, 3, 7);
+            CalcuteNumber(anonymousCalc2, 3, 7);
+
+            // 在參數上面使用匿名方法
+            CalcuteNumber(delegate (float a, float b) { return a / b; }, 9, 3);
+            CalcuteNumber((a, b) => { return a / b; }, 9, 3); 
+            #endregion
+
+            funcCalc = delegate(float x) { return x* 10; };
+            LogSysytem.LogWithColor($"Func 委派 :{funcCalc(3.5f)}", "#f33");
+
+            actionMethod = delegate() { LogSysytem.LogWithColor("Action 委派", "#f33"); };
+            actionMethod();
+
+            predicate = delegate (float x) { return x > 0; };
+            LogSysytem.LogWithColor($"Predicate 委派: 7 是否大於零 - {predicate(7)}", "#f33");
+
+            // Lambda 運算子 =>
+            // (參數) => {陳述式}
+            Action action = () => { LogSysytem.LogWithColor("Lambda 練習", "#ff3"); };
+            action();
+
+            Func<int, string>func = (x) => {  return $"Lambda 練習，數字:{x}"; };
+            LogSysytem.LogWithColor($"{func(77)}", "#ff3");
+
+            Predicate<string> predicateTest = (x) => { return x.Length > 0; };
+            LogSysytem.LogWithColor($"{predicateTest("KAI")}", "#ff3");
+          
         }
 
         // 委派 : 將 方法 當作參數
