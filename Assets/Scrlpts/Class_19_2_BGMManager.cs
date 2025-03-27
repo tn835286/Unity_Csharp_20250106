@@ -17,6 +17,18 @@ namespace KAI
             // 事件:輸入 += 可以使用 Tab 自動完成 > 命名方法後 > Enter 完成
             Class_19_2_Event.onDead += ChangeBGM;
             Class_19_2_Event.onDeadAction += ChangeBGMViaHp;
+            Class_19_2_Event.onEvent += ChangeBGMEvent;
+            Class_19_2_Event.onEventWithHp += ChangeBGMEventWithHp;
+        }
+        
+        private void ChangeBGMEventWithHp(object sender, float e)
+        {
+            LogSysytem.LogWithColor($"發送事件者:{sender}, 參數:{e}","#ff3");
+        }
+
+        private void ChangeBGMEvent(object sender, System.EventArgs e)
+        {
+            LogSysytem.LogWithColor($"發送事件者:{sender}, 參數:{e}", "#ff3");
         }
 
         private void ChangeBGMViaHp(string arg1, float arg2)
